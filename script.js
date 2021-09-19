@@ -44,7 +44,7 @@ document.getElementById("keyTitle").innerText = "Key"
 function deshift(){
   let oText = document.getElementById("dta").value;
 let key = document.getElementById("dkey").value;
-let dText = sleepshiftDecode(oText, key);
+let dText = zzzDecode(oText, key);
 document.getElementById("dText").innerText = dText;
   document.getElementById("dTextTitle").innerText = "Decoded Text"
 }

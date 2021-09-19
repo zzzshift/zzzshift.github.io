@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>zzzshift</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300&amp;display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body>
+  <h1>zzzshift</h1>
+    <p>zzzshift is a cipher I made that shifts each letter to "z" and returns a key with the shifts. Without the key, it's very challenging to crack. It supports a-z, 0-9, and some special characters. Try it out! (Note: While it is hard to crack, you shouldn't use it in actual security based projects.)</p>
+    <div class="encode">
+    <h2>Encode Text</h2>
+    <textarea id="eta" placeholder="Enter some text here."></textarea><br>
+<button onClick="shift()">Encode</button><br>
+    <h4 id="keyTitle"></h4>
+    <span id="key"></span>
+    <h4 id="textTitle"></h4>
+    <p id="nText"></p>
+  </div>
+    <div class="decode">
+    <h2>Decode Text</h2>
+     <input type="text" placeholder="Enter key here." id="dkey">
+    <textarea id="dta" placeholder="Enter the text here."></textarea><br>
+<button onClick="deshift()">Encode</button><br>
+    <h4 id="dTextTitle"></h4>
+    <p id="dText"></p>
+  </div>
+    <h3>Made by <a href="vedrane.com">Ved Rane</a></h3>
+  </body>
+</html>

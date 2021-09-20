@@ -6,13 +6,9 @@ function zzzEncode(text){
   letters.forEach(function(letter) 
   {
     if (regex.test(letter)){
-     console.log(letter)
        let letterVal = "z".charCodeAt(0) - letter.charCodeAt(0);
-      console.log(letterVal)
        keyArray.push(letterVal);
     } else {
-       console.log(letter)
-       console.log("Not")
        keyArray.push(0);
     }
   });

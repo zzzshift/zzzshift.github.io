@@ -20,10 +20,10 @@ function zzzDecode(text, key){
   let keyArray = key.split(".");
   let letters = text.split("");
   let textArray = [];
- letters.forEach(function(letter, i){
+  letters.forEach(function(letter, i){
    let value = parseInt(letter.charCodeAt(0)) - parseInt(keyArray[i]);
-textArray.push(value)
- })
+   textArray.push(value);
+  });
   let string = String.fromCharCode(...textArray);
   return string;
 }

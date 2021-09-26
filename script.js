@@ -1,23 +1,22 @@
-function uniqEncode(text){
-  let chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","$",".","%","/"];
-  let charArray = [];
+function zzzEncode(text){
+  let regex = /[a-zA-Z0-9_@./#$&+-?!,]/;
   let letters = text.split("");
-  letters.forEach(function(letter)
-  {
-    charArray.push(chars[Math.floor(Math.random() * letters.length)]);
-  }
-  let newText = charArray.join("");
+  let newText = text.replace(/[a-zA-Z0-9_@./#$&+-?!,]/g, "z");
   let keyArray = [];
-  letters.forEach(function(letter, i) 
+  letters.forEach(function(letter) 
   {
-       let letterVal = charArray[i].charCodeAt(0) - letter.charCodeAt(0);
+    if (regex.test(letter)){
+       let letterVal = "z".charCodeAt(0) - letter.charCodeAt(0);
        keyArray.push(letterVal);
+    } else {
+       keyArray.push(0);
+    }
   });
   let key = keyArray.join(".");
   return [newText, key];
 }
 
-function uniqDecode(text, key){
+function zzzDecode(text, key){
   let keyArray = key.split(".");
   let letters = text.split("");
   let textArray = [];
@@ -31,7 +30,7 @@ textArray.push(value)
 
 function shift(){
    let text = document.getElementById("eta").value;
-  [nText, key] = uniqEncode(text);
+  [nText, key] = zzzEncode(text);
   document.getElementById("key").innerText = key;
   document.getElementById("nText").innerText = nText;
 document.getElementById("textTitle").innerText = "Encoded Text"
@@ -41,7 +40,7 @@ document.getElementById("keyTitle").innerText = "Key"
 function deshift(){
   let oText = document.getElementById("dta").value;
 let key = document.getElementById("dkey").value;
-let dText = uniqDecode(oText, key);
+let dText = zzzDecode(oText, key);
 document.getElementById("dText").innerText = dText;
   document.getElementById("dTextTitle").innerText = "Decoded Text"
 }
